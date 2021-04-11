@@ -3,36 +3,36 @@ var mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
+var Schema = mongoose.Schema;
+
+// define a schema
+const personSchema = new Schema({
+  name: {type: String, required: true},
+  age: Number,
+  favoriteFoods: {type: [String], default: ['pizza']}
+});
+
+// compiling the model
+var Person = mongoose.model('Person', personSchema);
+
+// instantiating a person
+let carlos = new Person({
+  name: 'carlos', 
+  age: 24, 
+  favoriteFoods:['pizza','esfiha']
+});
+
+/**carlos.save(function(err, carlos){
+  if(err) return console.error(err);
+  //console.log('saved to db!');
+})*/
+/** 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
   // we're connected!
-
-  var Schema = mongoose.Schema;
-
-  // define a schema
-  const personSchema = new Schema({
-    name: {type: String, required: true},
-    age: Number,
-    favoriteFoods: {type: [String], default: ['pizza']}
-  });
-
-  // compiling the model
-  var Person = mongoose.model('Person', personSchema);
-
-  // instantiating a person
-  let carlos = new Person({
-    name: 'carlos', 
-    age: 24, 
-    favoriteFoods:['pizza','esfiha']
-  });
-  
-  /**carlos.save(function(err, carlos){
-    if(err) return console.error(err);
-    //console.log('saved to db!');
-  })*/
 });
-
+*/
 
 
 let Person;
