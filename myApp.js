@@ -8,15 +8,17 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
   // we're connected!
 
+  var Schema = mongoose.Schema;
+
   // define a schema
-  const personSchema = new mongoose.Schema({
+  const personSchema = new Schema({
     name: {type: String, required: true},
     age: Number,
     favoriteFoods: {type: [String], default: ['pizza']}
   });
 
   // compiling the model
-  const Person = mongoose.model('Person', personSchema);
+  var Person = mongoose.model('Person', personSchema);
 
   // instantiating a person
   let carlos = new Person({
