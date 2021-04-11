@@ -56,6 +56,7 @@ const createManyPeople = (arrayOfPeople, done) => {
   });
 };
 
+/**
 var arrayOfPeople = new Array();
 
 arrayOfPeople = [{name: 'maya',   age: 2, favoriteFoods:['ração']},
@@ -65,10 +66,18 @@ arrayOfPeople = [{name: 'maya',   age: 2, favoriteFoods:['ração']},
 createManyPeople(arrayOfPeople, (err, data)=> {
   console.log(data);
 });
+ */
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Person.find(personName, (err, aMatches) => {
+    if(err) return console.log(err);
+    done(null , aMatches);
+  });
 };
+
+findPeopleByName({name: 'maya'}, (err, data) => {
+  console.log(data);
+});
 
 const findOneByFood = (food, done) => {
   done(null /*, data*/);
