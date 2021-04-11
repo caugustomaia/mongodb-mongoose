@@ -13,7 +13,7 @@ const personSchema = new Schema({
 });
 
 // compiling the model
-var Person = mongoose.model('Person', personSchema);
+let Person = mongoose.model('Person', personSchema);
 
 // instantiating a person
 let carlos = new Person({
