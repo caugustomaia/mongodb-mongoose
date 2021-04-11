@@ -18,8 +18,12 @@ db.once('open', function(){
   // compiling the model
   const Person = mongoose.model('Person', personSchema);
 
-  const carlos = new Person({name:'carlos', age: 24, favoriteFoods:['pizza','esfiha']});
-
+  const carlos = new Person({name: 'carlos', age: 24, favoriteFoods:['pizza','esfiha']});
+  
+  carlos.save(function(err, carlos){
+    if(err) return console.error(err);
+    //console.log('saved to db!');
+  })
 });
 
 
