@@ -35,7 +35,7 @@ db.once('open', function(){
 */
 
 
-let Person;
+//let Person;
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
