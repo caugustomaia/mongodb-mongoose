@@ -56,7 +56,7 @@ const createManyPeople = (arrayOfPeople, done) => {
   });
 };
 
-/**
+
 var arrayOfPeople = new Array();
 
 arrayOfPeople = [{name: 'maya',   age: 2, favoriteFoods:['ração']},
@@ -64,9 +64,8 @@ arrayOfPeople = [{name: 'maya',   age: 2, favoriteFoods:['ração']},
 }];
 
 createManyPeople(arrayOfPeople, (err, data)=> {
-  console.log(data);
+  //console.log(data);
 });
- */
 
 const findPeopleByName = (personName, done) => {
   Person.find(personName, (err, docs) => {
