@@ -16,29 +16,31 @@ const personSchema = new Schema({
 let Person = mongoose.model('Person', personSchema);
 
 // instantiating a person
-let carlos = new Person({
+/*
+  let carlos = new Person({
   name: 'carlos', 
   age: 24, 
   favoriteFoods:['pizza','esfiha']
 });
+*/
 
 /**carlos.save(function(err, carlos){
   if(err) return console.error(err);
   //console.log('saved to db!');
 })*/
-/** 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function(){
-  // we're connected!
-});
-*/
-
 
 //let Person;
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+  person = new Person({
+    name: 'carlos', 
+    age: 24, 
+    favoriteFoods:['pizza','esfiha']
+  });
+
+  person.save(function(err,data){});
+
+  done(null, data);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
