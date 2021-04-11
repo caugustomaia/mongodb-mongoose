@@ -50,8 +50,8 @@ createAndSavePerson(function(err, data){
 */
 
 const createManyPeople = (arrayOfPeople, done) => {
-  Person.create(arrayOfPeople);
-  done(null /*, data*/);
+  data = Person.create(arrayOfPeople);
+  done(null, data);
 };
 
 var arrayOfPeople = new Array();
@@ -67,8 +67,8 @@ arrayOfPeople = [{
   favoriteFoods:['chocolate','comidas de almoço']
 }];
 
-createManyPeople(arrayOfPeople, ()=> {
-
+createManyPeople(arrayOfPeople, (err, data)=> {
+  
 });
 
 const findPeopleByName = (personName, done) => {
