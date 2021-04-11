@@ -12,7 +12,7 @@ db.once('open', function(){
   const personSchema = new mongoose.Schema({
     name: {type: String, required: true},
     age: Number,
-    favoriteFoods: [String]
+    favoriteFoods: {type: [String], default: ['pizza']}
   });
 
   // compiling the model
