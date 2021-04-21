@@ -140,20 +140,30 @@ findEditThenSave('60736d608d3e4736338370e6', (err, data) => {
 
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
-
+/*
   Person.update({name:personName}, {age:ageToSet}, (err, data) =>{
     if(err) console.log(err);
     //console.log(data);
+    done(null, data);
   });
+*/
 
-  done(null /*, data*/);
+  Person.findOneAndUpdate({name: personName}, {age: ageToSet}, {new: true}, (err, doc) => {
+    
+    if (err) {
+      console.log(err);
+    }else{
+      done(null, doc);
+    }
+  });
+  
 };
 
-findAndUpdate('Ana', (err, data) => {
+findAndUpdate('maya', (err, data) => {
   if (err) 
     console.log(err);
   else{
-    //console.log(data);
+    console.log(data);
   }
 });
 
