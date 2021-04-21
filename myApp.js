@@ -132,18 +132,31 @@ const findEditThenSave = (personId, done) => {
 
   
 };
-
+/*
 findEditThenSave('60736d608d3e4736338370e6', (err, data) => {
   console.log(data.favoriteFoods);
 });
-
+*/
 
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
 
+  Person.update({name:personName}, {age:ageToSet}, (err, data) =>{
+    if(err) console.log(err);
+    //console.log(data);
+  });
+
   done(null /*, data*/);
 };
-
+/*
+findAndUpdate('Ana', (err, data) => {
+  if (err) 
+    console.log(err);
+  else{
+    //console.log(data);
+  }
+});
+*/
 const removeById = (personId, done) => {
   done(null /*, data*/);
 };
