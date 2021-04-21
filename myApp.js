@@ -101,16 +101,27 @@ const findPersonById = (personId, done) => {
     done(null, doc);
   });
 };
-
+/*
 findPersonById('60736d608d3e4736338370e6', (err, data)=>{
   console.log(data);
 });
+*/
 
 const findEditThenSave = (personId, done) => {
   const foodToAdd = "hamburger";
+  
+  Person.update({_id:personId}, {$push:{favoriteFoods:foodToAdd}}, (err, data) =>{
+    if(err) console.log(err);
+    console.log(data);
+  });
 
   done(null /*, data*/);
 };
+
+findEditThenSave('60736d608d3e4736338370e6', (err, data) => {
+  //console.log('123');
+});
+
 
 const findAndUpdate = (personName, done) => {
   const ageToSet = 20;
