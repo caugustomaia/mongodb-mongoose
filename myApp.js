@@ -168,9 +168,24 @@ findAndUpdate('maya', (err, data) => {
 });
 */
 const removeById = (personId, done) => {
-  done(null /*, data*/);
-};
 
+  Person.findByIdAndRemove(personId, (err, qr) => {
+    if (err){
+      console.log(err);
+    }else{
+      done(null, qr);
+    }
+  });
+};
+/*
+removeById('60736d608d3e4736338370e6', (err,data) => {
+  if(err){
+    console.log(err);
+  }else{
+    console.log(data);
+  }
+});
+*/
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
 
