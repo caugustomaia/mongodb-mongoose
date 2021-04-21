@@ -148,7 +148,7 @@ const findAndUpdate = (personName, done) => {
 
   done(null /*, data*/);
 };
-/*
+
 findAndUpdate('Ana', (err, data) => {
   if (err) 
     console.log(err);
@@ -156,7 +156,7 @@ findAndUpdate('Ana', (err, data) => {
     //console.log(data);
   }
 });
-*/
+
 const removeById = (personId, done) => {
   done(null /*, data*/);
 };
